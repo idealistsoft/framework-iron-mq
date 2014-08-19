@@ -1,0 +1,26 @@
+{
+	"name": "idealistsoft/framework-iron-mq",
+	"version": "1.0",
+	"description": "IronMQ module for Idealist Framework",
+	"type": "library",
+	"keywords": ["idealist","framework","iron.io","ironmq","message","queue","background"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "jaredtking",
+			"email": "j@jaredtking.com",
+			"homepage": "http://jaredtking.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/idealistsoft/framework-iron-mq/issues",
+		"source": "https://github.com/idealistsoft/framework-iron-mq"
+	},
+    "autoload": {
+        "psr-0": {"": "src"}
+    },
+	"require": {
+		"php": ">=5.4.0",
+		"iron-io/iron_mq": "1.4.5"
+	}
+}
