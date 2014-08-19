@@ -10,3 +10,7 @@ IronMQ module for Idealist Framework
 ## Installation
 
 Add the composer package in the require section of your app's `composer.json` and run `composer update`
+
+## Usage
+
+If you are using iron.io push queues they can be installed with `./infuse /iron/install`
