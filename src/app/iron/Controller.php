@@ -2,6 +2,8 @@
 
 namespace app\iron;
 
+use IronMQ;
+
 use App;
 
 class Controller
@@ -19,6 +21,15 @@ class Controller
 	function __construct( App $app )
 	{
 		$this->app = $app;
+	}
+
+	function middleware( $req, $res )
+	{
+		$this->app[ 'ironmq' ] = function( $c ) {
+			return new IronMQ( [
+				'token' => $c[ 'config' ]->get( 'queue.token' ),
+				'project_id' => $c[ 'config' ]->get( 'queue.project' ) ] );
+		};
 	}
 
 	function message( $req, $res )
