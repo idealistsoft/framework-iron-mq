@@ -26,9 +26,7 @@ class Controller
 	function middleware( $req, $res )
 	{
 		$this->app[ 'ironmq' ] = function( $c ) {
-			return new IronMQ( [
-				'token' => $c[ 'config' ]->get( 'queue.token' ),
-				'project_id' => $c[ 'config' ]->get( 'queue.project' ) ] );
+			return new IronMQ( $c[ 'config' ]->get( 'ironmq' ) );
 		};
 	}
 
