@@ -21,6 +21,6 @@
     },
 	"require": {
 		"php": ">=5.4.0",
-		"iron-io/iron_mq": "1.4.5"
+		"iron-io/iron_mq": "1.5.1"
 	}
 }
