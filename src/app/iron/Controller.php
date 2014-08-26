@@ -54,7 +54,7 @@ class Controller
 
     	if( $this->app[ 'queue' ]->install() )
     	{
-    		foreach( $this->app[ 'queue' ]->subscribers() as $q => $subscribers )
+    		foreach( $this->app[ 'queue' ]->pushQueueSubscribers() as $q => $subscribers )
     		{
 				echo "Installed $q with subscribers:\n";
 				print_r( $subscribers );
