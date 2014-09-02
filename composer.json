@@ -1,6 +1,5 @@
 {
 	"name": "idealistsoft/framework-iron-mq",
-	"version": "1.0",
 	"description": "IronMQ module for Idealist Framework",
 	"type": "library",
 	"keywords": ["idealist","framework","iron.io","ironmq","message","queue","background"],
@@ -17,7 +16,7 @@
 		"source": "https://github.com/idealistsoft/framework-iron-mq"
 	},
     "autoload": {
-        "psr-0": {"": "src"}
+        "psr-0": {"app\\iron\\": "src/"}
     },
 	"require": {
 		"php": ">=5.4.0",
