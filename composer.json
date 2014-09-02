@@ -16,7 +16,7 @@
 		"source": "https://github.com/idealistsoft/framework-iron-mq"
 	},
     "autoload": {
-        "psr-0": {"app\\iron\\": "src/"}
+        "psr-4": {"app\\iron\\": "src/"}
     },
 	"require": {
 		"php": ">=5.4.0",
