@@ -4,11 +4,9 @@ namespace app\iron;
 
 use IronMQ;
 
-use InjectApp;
-
 class Controller
 {
-    use InjectApp;
+    use \InjectApp;
 
     public static $properties = [
         'routes' => [
