@@ -4,10 +4,12 @@ namespace app\iron;
 
 use IronMQ;
 
-use App;
+use InjectApp;
 
 class Controller
 {
+    use InjectApp;
+
     public static $properties = [
         'routes' => [
             'post /iron/message' => 'message',
@@ -15,13 +17,6 @@ class Controller
             'get /iron/processQueues' => 'processQueues',
         ]
     ];
-
-    private $app;
-
-    public function __construct(App $app)
-    {
-        $this->app = $app;
-    }
 
     public function middleware($req, $res)
     {
