@@ -1,11 +1,13 @@
-framework-iron-mq [![Build Status](https://travis-ci.org/idealistsoft/framework-iron-mq.png?branch=master)](https://travis-ci.org/idealistsoft/framework-iron-mq)
+iron-mq
 =================
 
-[![Coverage Status](https://coveralls.io/repos/idealistsoft/framework-iron-mq/badge.png)](https://coveralls.io/r/idealistsoft/framework-iron-mq)
-[![Latest Stable Version](https://poser.pugx.org/idealistsoft/framework-iron-mq/v/stable.png)](https://packagist.org/packages/idealistsoft/framework-iron-mq)
-[![Total Downloads](https://poser.pugx.org/idealistsoft/framework-iron-mq/downloads.png)](https://packagist.org/packages/idealistsoft/framework-iron-mq)
+[![Build Status](https://travis-ci.org/iinfusephp/iron-mq.png?branch=master)](https://travis-ci.org/iiinfusephp/iron-mq)
+[![Coverage Status](https://coveralls.io/repos/iiinfusephp/iron-mq/badge.png)](https://coveralls.io/r/iiinfusephp/iron-mq)
+[![Latest Stable Version](https://poser.pugx.org/iinfuse/iron-mq/v/stable.png)](https://packagist.org/packages/iinfuse/iron-mq)
+[![Total Downloads](https://poser.pugx.org/iinfuse/iron-mq/downloads.png)](https://packagist.org/packages/iinfuse/iron-mq)
+[![HHVM Status](http://hhvm.h4cc.de/badge/infuse/iron-mq.svg)](http://hhvm.h4cc.de/package/infuse/iron-mq)
 
-IronMQ module for Idealist Framework
+IronMQ module for Infuse Framework
 
 ## Installation
 

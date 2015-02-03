@@ -1,8 +1,8 @@
 {
-	"name": "idealistsoft/framework-iron-mq",
-	"description": "IronMQ module for Idealist Framework",
+	"name": "infuse/iron-mq",
+	"description": "IronMQ module for Infuse Framework",
 	"type": "library",
-	"keywords": ["idealist","framework","iron.io","ironmq","message","queue","background"],
+	"keywords": ["infuse","framework","iron.io","ironmq","message","queue","background"],
 	"license": "MIT",
 	"authors": [
 		{
@@ -12,8 +12,8 @@
 		}
 	],
 	"support": {
-		"issues": "https://github.com/idealistsoft/framework-iron-mq/issues",
-		"source": "https://github.com/idealistsoft/framework-iron-mq"
+		"issues": "https://github.com/infusephp/iron-mq/issues",
+		"source": "https://github.com/infusephp/iron-mq"
 	},
     "autoload": {
         "psr-4": {"app\\iron\\": "src/"}
