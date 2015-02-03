@@ -1,7 +1,6 @@
 iron-mq
 =================
 
-[![Coverage Status](https://coveralls.io/repos/infusephp/iron-mq/badge.png)](https://coveralls.io/r/infusephp/iron-mq)
 [![Latest Stable Version](https://poser.pugx.org/infuse/iron-mq/v/stable.png)](https://packagist.org/packages/infuse/iron-mq)
 [![Total Downloads](https://poser.pugx.org/infuse/iron-mq/downloads.png)](https://packagist.org/packages/infuse/iron-mq)
 
