@@ -8,7 +8,11 @@ IronMQ module for Infuse Framework
 
 ## Installation
 
-Add the composer package in the require section of your app's `composer.json` and run `composer update`
+1. Install the package with [composer](http://getcomposer.org):
+
+```
+composer require infuse/iron-mq
+```
 
 ## Usage
 
