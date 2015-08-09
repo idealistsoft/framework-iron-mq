@@ -8,16 +8,13 @@ class Controller
 {
     use \InjectApp;
 
-    public static $properties = [
-        'routes' => [
-            'post /iron/message' => 'message',
-            'get /iron/install' => 'setupQueues',
-            'get /iron/processQueues' => 'processQueues',
-        ],
-    ];
-
     public function middleware($req, $res)
     {
+        // add routes
+        $this->app->post('/iron/message', 'message')
+                  ->get('/iron/install', 'setupQueues')
+                  ->get('/iron/processQueues', 'processQueues');
+
         $this->app[ 'ironmq' ] = function ($c) {
             return new IronMQ($c[ 'config' ]->get('ironmq'));
         };
