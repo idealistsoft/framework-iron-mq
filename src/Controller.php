@@ -11,9 +11,9 @@ class Controller
     public function middleware($req, $res)
     {
         // add routes
-        $this->app->post('/iron/message', 'message')
-                  ->get('/iron/install', 'setupQueues')
-                  ->get('/iron/processQueues', 'processQueues');
+        $this->app->post('/iron/message', ['iron\\Controller', 'message'])
+                  ->get('/iron/install', ['iron\\Controller', 'setupQueues'])
+                  ->get('/iron/processQueues', ['iron\\Controller', 'processQueues']);
 
         $this->app[ 'ironmq' ] = function ($c) {
             return new IronMQ($c[ 'config' ]->get('ironmq'));
