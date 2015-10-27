@@ -11,9 +11,7 @@ class Controller
     public function middleware($req, $res)
     {
         // add routes
-        $this->app->post('/iron/message', ['iron\\Controller', 'message'])
-                  ->get('/iron/install', ['iron\\Controller', 'setupQueues'])
-                  ->get('/iron/processQueues', ['iron\\Controller', 'processQueues']);
+        $this->app->post('/iron/message', ['iron\\Controller', 'message']);
 
         $this->app[ 'ironmq' ] = function ($c) {
             return new IronMQ($c[ 'config' ]->get('ironmq'));
@@ -33,41 +31,8 @@ class Controller
         $message->body = json_decode($req->request());
 
         // grab the message from the post body
-        $this->app[ 'queue' ]->receiveMessage($req->query('q'), $message);
+        $this->app['queue']->receiveMessage($req->query('q'), $message);
 
         $res->setCode(200);
-    }
-
-    public function setupQueues($req, $res)
-    {
-        if (!$req->isCli()) {
-            return $res->setCode(404);
-        }
-
-        if ($this->app[ 'queue' ]->install()) {
-            foreach ($this->app[ 'queue' ]->pushQueueSubscribers() as $q => $subscribers) {
-                echo "Installed $q with subscribers:\n";
-                print_r($subscribers);
-            }
-        }
-    }
-
-    public function processQueues($req, $res)
-    {
-        if (!$req->isCli()) {
-            return $res->setCode(404);
-        }
-
-        foreach ($this->app[ 'config' ]->get('queue.queues') as $q) {
-            echo "Processing messages for $q queue:\n";
-
-            $messages = $this->app[ 'queue' ]->dequeue($q, 10);
-
-            print_r($messages);
-
-            foreach ((array) $messages as $message) {
-                $this->app[ 'queue' ]->receiveMessage($q, $message);
-            }
-        }
     }
 }
