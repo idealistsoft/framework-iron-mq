@@ -20,8 +20,7 @@
     },
 	"require": {
 		"php": ">=5.4.0",
-		"iron-io/iron_mq": "1.5.1",
-		"iron-io/iron_core": "0.2.2"
+		"iron-io/iron_mq": "~3.0"
 	},
 	"require-dev": {
 		"infuse/bootstrap": "dev-master",

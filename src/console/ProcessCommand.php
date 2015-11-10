@@ -13,6 +13,7 @@ namespace app\iron\console;
 use Infuse\Queue;
 use Infuse\Queue\Driver\IronDriver;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -24,11 +25,18 @@ class ProcessCommand extends Command
     {
         $this
             ->setName('iron-process')
-            ->setDescription('Processes recent messages in Iron.io message queues');
+            ->setDescription('Processes messages from Iron.io message queues')
+            ->addArgument(
+                'n',
+                InputArgument::OPTIONAL,
+                'Number of messages to dequeue',
+                10
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $n = $input->getArgument('n');
         $config = $this->app['config'];
         $ironDriver = new IronDriver($this->app);
 
@@ -36,14 +44,15 @@ class ProcessCommand extends Command
             $output->writeln("Processing messages for '$q' queue:");
 
             $queue = new Queue($q);
-            $messages = $queue->dequeue(10);
+            $messages = $queue->dequeue($n);
 
-            $n = 0;
+            $m = 0;
             foreach ($messages as $message) {
                 $queue->receiveMessage($message);
+                ++$m;
             }
 
-            $output->writeln("- Processed $n message(s)");
+            $output->writeln("- Processed $m message(s)");
         }
 
         return 0;
