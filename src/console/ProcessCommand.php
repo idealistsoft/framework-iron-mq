@@ -10,6 +10,8 @@
  */
 namespace app\iron\console;
 
+use Infuse\Queue;
+use Infuse\Queue\Driver\IronDriver;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,14 +29,21 @@ class ProcessCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        foreach ($this->app['config']->get('queue.queues') as $q) {
-            $output->writeln("Processing messages for $q queue:");
+        $config = $this->app['config'];
+        $ironDriver = new IronDriver($this->app);
 
-            $messages = $this->app['queue']->dequeue($q, 10);
+        foreach ($config->get('queue.queues') as $q) {
+            $output->writeln("Processing messages for '$q' queue:");
 
-            foreach ((array) $messages as $message) {
-                $this->app['queue']->receiveMessage($q, $message);
+            $queue = new Queue($q);
+            $messages = $queue->dequeue(10);
+
+            $n = 0;
+            foreach ($messages as $message) {
+                $queue->receiveMessage($message);
             }
+
+            $output->writeln("- Processed $n message(s)");
         }
 
         return 0;

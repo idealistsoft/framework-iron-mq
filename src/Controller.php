@@ -2,6 +2,8 @@
 
 namespace app\iron;
 
+use Infuse\Queue\Driver\IronDriver;
+use Infuse\Queue;
 use IronMQ;
 
 class Controller
@@ -11,27 +13,26 @@ class Controller
     public function middleware($req, $res)
     {
         // add routes
-        $this->app->post('/iron/message', ['iron\\Controller', 'message']);
+        $this->app->post('/iron/message', ['iron\Controller', 'message']);
 
-        $this->app[ 'ironmq' ] = function ($c) {
-            return new IronMQ($c[ 'config' ]->get('ironmq'));
+        $this->app['ironmq'] = function ($c) {
+            return new IronMQ($c['config']->get('ironmq'));
         };
     }
 
     public function message($req, $res)
     {
         // verify auth token
-        if ($req->query('auth') != $this->app[ 'config' ]->get('iron.auth_token')) {
+        if ($req->query('auth_token') != $this->app['config']->get('ironmq.auth_token')) {
             return $res->setCode(401);
         }
 
-        // construct the message from the request
-        $message = new \stdClass();
-        $message->id = $req->headers('Iron_Message_Id');
-        $message->body = json_decode($req->request());
+        // parse the message from the request
+        $ironDriver = new IronDriver($this->app);
+        $message = $ironDriver->buildMessageFromRequest($req);
 
-        // grab the message from the post body
-        $this->app['queue']->receiveMessage($req->query('q'), $message);
+        // notify the queue listeners of the message
+        Queue::receiveMessage($message);
 
         $res->setCode(200);
     }

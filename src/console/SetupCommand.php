@@ -10,6 +10,7 @@
  */
 namespace app\iron\console;
 
+use Infuse\Queue\Driver\IronDriver;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,17 +28,41 @@ class SetupCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if (!$this->app['queue']->install()) {
-            $output->writeln('Could not setup queues.');
+        $config = $this->app['config'];
+
+        $baseUrl = $config->get('ironmq.push_listener');
+        if (!$baseUrl) {
+            $output->writeln('Cannot install iron.io push queues because the ironmq.push_listener setting has not been set');
 
             return 1;
         }
 
-        foreach ($this->app['queue']->pushQueueSubscribers() as $q => $listener) {
-            $output->writeln("Installed $q with listener {$listener['url']}");
+        $authToken = $config->get('ironmq.auth_token');
+        if (!$authToken) {
+            $output->writeln('Cannot install iron.io push queues because the ironmq.auth_token setting has not been set');
+
+            return 1;
         }
 
-        $output->writeln('Queues installed successfully');
+        $queues = $config->get('queue.queues');
+        $pushType = $config->get('ironmq.push_type');
+        if (!$pushType) {
+            $pushType = 'unicast';
+        }
+
+        $ironDriver = new IronDriver($this->app);
+        if (!$ironDriver->install($queues, $baseUrl, $authToken, $pushType)) {
+            $output->writeln('Could not install iron.io push queues.');
+
+            return 1;
+        }
+
+        foreach ($queues as $queue) {
+            $url = $ironDriver->getPushQueueUrl($queue, $baseUrl, $authToken);
+            $output->writeln("Installed '$queue' queue with listener: $url");
+        }
+
+        $output->writeln('Iron.io push queues installed successfully');
 
         return 0;
     }

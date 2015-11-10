@@ -28,4 +28,4 @@ composer require infuse/iron-mq
 
 ## Usage
 
-If you are using iron.io push queues they can be installed with `./infuse /iron/install`
+If you are using iron.io push queues they can be installed with `./infuse iron-setup`
