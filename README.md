@@ -23,8 +23,8 @@ composer require infuse/iron-mq
 	// ...
 	'commands' => [
 		// ...
-		'app\iron\console\SetupCommand',
-		'app\iron\console\ProcessCommand'
+		'App\Iron\Console\SetupCommand',
+		'App\Iron\Console\ProcessCommand'
 	]
 ]
 ```

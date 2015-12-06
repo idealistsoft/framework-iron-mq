@@ -8,7 +8,7 @@
  * @copyright 2015 Jared King
  * @license MIT
  */
-namespace app\iron\console;
+namespace App\Iron\Console;
 
 use Infuse\Queue;
 use Infuse\Queue\Driver\IronDriver;

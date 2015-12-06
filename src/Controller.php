@@ -1,6 +1,6 @@
 <?php
 
-namespace app\iron;
+namespace App\Iron;
 
 use Infuse\Queue\Driver\IronDriver;
 use Infuse\Queue;

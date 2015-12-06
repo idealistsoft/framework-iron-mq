@@ -1,6 +1,6 @@
 <?php
 
-use app\iron\Controller;
+use App\Iron\Controller;
 use Infuse\Queue;
 use Infuse\Request;
 use Infuse\Response;
