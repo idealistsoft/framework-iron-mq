@@ -13,7 +13,7 @@ class Controller
     public function middleware($req, $res)
     {
         // add routes
-        $this->app->post('/iron/message', ['iron\Controller', 'message']);
+        $this->app->post('/iron/message', ['App\Iron\Controller', 'message']);
 
         $this->app['ironmq'] = function ($c) {
             return new IronMQ($c['config']->get('ironmq'));
