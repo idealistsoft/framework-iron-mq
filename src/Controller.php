@@ -4,7 +4,6 @@ namespace App\Iron;
 
 use Infuse\Queue\Driver\IronDriver;
 use Infuse\Queue;
-use IronMQ;
 
 class Controller
 {
@@ -14,10 +13,6 @@ class Controller
     {
         // add routes
         $this->app->post('/iron/message', ['App\Iron\Controller', 'message']);
-
-        $this->app['ironmq'] = function ($c) {
-            return new IronMQ($c['config']->get('ironmq'));
-        };
     }
 
     public function message($req, $res)

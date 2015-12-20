@@ -17,7 +17,18 @@ IronMQ module for Infuse Framework
 composer require infuse/iron-mq
 ```
 
-2. Add the console command to run jobs to `modules.commands` in your app's configuration:
+2. Add the service to `services` in your app's configuration:
+
+```php
+'services' => [
+	// ...
+	'ironmq' => /App\Iron\Services\IronMQ'
+	// ....
+]
+```
+
+3. Add the console command to run jobs to `modules.commands` in your app's configuration:
+
 ```php
 'modules' => [
 	// ...

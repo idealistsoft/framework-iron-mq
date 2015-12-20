@@ -12,6 +12,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     public function testIron()
     {
         $app = new App([
+            'services' => ['ironmq' => ['App\Iron\Services\IronMQ']],
             'modules' => ['middleware' => ['iron']],
             'ironmq' => [
                 'project_id' => 'test',
