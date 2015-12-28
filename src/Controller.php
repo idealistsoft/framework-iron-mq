@@ -9,12 +9,6 @@ class Controller
 {
     use \InjectApp;
 
-    public function middleware($req, $res)
-    {
-        // add routes
-        $this->app->post('/iron/message', ['App\Iron\Controller', 'message']);
-    }
-
     public function message($req, $res)
     {
         // verify auth token

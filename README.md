@@ -40,6 +40,19 @@ composer require infuse/iron-mq
 ]
 ```
 
+4. (optional) Add an endpoint to your routing table to receive push queue messages:
+
+```php
+'routes' => [
+	// ...
+	'POST /iron/message' => [
+		'App\Iron\Controller',
+		'message'
+    ]
+	// ...
+]
+```
+
 ## Usage
 
 If you are using iron.io push queues they can be installed with `./infuse iron-setup`
