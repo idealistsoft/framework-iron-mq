@@ -23,8 +23,7 @@
 		"iron-io/iron_mq": "~3.0"
 	},
 	"require-dev": {
-		"infuse/bootstrap": "dev-master",
-		"infuse/libs": "dev-master as 0.4.x-dev",
+		"infuse/infuse": "dev-master",
 		"satooshi/php-coveralls": "0.6.1"
 	}
 }

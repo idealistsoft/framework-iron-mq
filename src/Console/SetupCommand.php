@@ -10,6 +10,7 @@
  */
 namespace App\Iron\Console;
 
+use Infuse\HasApp;
 use Infuse\Queue\Driver\IronDriver;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -17,7 +18,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SetupCommand extends Command
 {
-    use \InjectApp;
+    use HasApp;
 
     protected function configure()
     {

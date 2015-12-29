@@ -10,6 +10,7 @@
  */
 namespace App\Iron\Console;
 
+use Infuse\HasApp;
 use Infuse\Queue;
 use Infuse\Queue\Driver\IronDriver;
 use Symfony\Component\Console\Command\Command;
@@ -19,7 +20,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ProcessCommand extends Command
 {
-    use \InjectApp;
+    use HasApp;
 
     protected function configure()
     {

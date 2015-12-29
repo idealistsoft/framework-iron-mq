@@ -1,6 +1,7 @@
 <?php
 
 use App\Iron\Controller;
+use Infuse\Application;
 use Infuse\Queue;
 use Infuse\Request;
 use Infuse\Response;
@@ -11,20 +12,20 @@ class ControllerTest extends PHPUnit_Framework_TestCase
 
     public function testIron()
     {
-        $app = new App([
-            'services' => ['ironmq' => ['App\Iron\Services\IronMQ']],
-            'modules' => ['middleware' => ['iron']],
+        $app = new Application([
+            'services' => [
+                'ironmq' => 'App\Iron\Services\IronMQ',
+            ],
             'ironmq' => [
                 'project_id' => 'test',
                 'token' => 'token', ], ]);
-        $app->executeMiddleware();
 
         $this->assertInstanceOf('IronMQ', $app['ironmq']);
     }
 
     public function testMessageNoAuth()
     {
-        $app = new App([
+        $app = new Application([
             'ironmq' => [
                 'auth_token' => 'secret', ], ]);
 
@@ -42,7 +43,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
 
     public function testMessage()
     {
-        $app = new App([
+        $app = new Application([
             'ironmq' => [
                 'auth_token' => 'secret', ], ]);
 

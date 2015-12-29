@@ -2,12 +2,13 @@
 
 namespace App\Iron;
 
+use Infuse\HasApp;
 use Infuse\Queue\Driver\IronDriver;
 use Infuse\Queue;
 
 class Controller
 {
-    use \InjectApp;
+    use HasApp;
 
     public function message($req, $res)
     {
