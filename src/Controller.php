@@ -23,7 +23,5 @@ class Controller
 
         // notify the queue listeners of the message
         Queue::receiveMessage($message);
-
-        $res->setCode(200);
     }
 }
