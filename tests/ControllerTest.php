@@ -34,7 +34,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
         $res = new Response();
 
         $controller = new Controller();
-        $controller->injectApp($app);
+        $controller->setApp($app);
 
         $controller->message($req, $res);
 
@@ -57,7 +57,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
         $res = new Response();
 
         $controller = new Controller();
-        $controller->injectApp($app);
+        $controller->setApp($app);
 
         Queue::listen('test', function ($message) {
             self::$received = $message;
