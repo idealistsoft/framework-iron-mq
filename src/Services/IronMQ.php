@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Iron\Services;
+namespace Infuse\IronMQ\Services;
 
 class IronMQ
 {

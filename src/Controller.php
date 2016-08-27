@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Iron;
+namespace Infuse\IronMQ;
 
 use Infuse\HasApp;
 use Infuse\Queue\Driver\IronDriver;

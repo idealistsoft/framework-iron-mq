@@ -16,7 +16,7 @@
 		"source": "https://github.com/infusephp/iron-mq"
 	},
     "autoload": {
-        "psr-4": {"App\\Iron\\": "src/"}
+        "psr-4": {"Infuse\\IronMQ\\": "src/"}
     },
 	"require": {
 		"php": ">=5.4.0",

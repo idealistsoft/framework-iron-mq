@@ -8,7 +8,8 @@
  * @copyright 2015 Jared King
  * @license MIT
  */
-namespace App\Iron\Console;
+
+namespace Infuse\IronMQ\Console;
 
 use Infuse\HasApp;
 use Infuse\Queue;

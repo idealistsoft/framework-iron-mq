@@ -1,6 +1,6 @@
 <?php
 
-use App\Iron\Controller;
+use Infuse\IronMQ\Controller;
 use Infuse\Application;
 use Infuse\Queue;
 use Infuse\Request;
@@ -14,7 +14,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     {
         $app = new Application([
             'services' => [
-                'ironmq' => 'App\Iron\Services\IronMQ',
+                'ironmq' => 'Infuse\IronMQ\Services\IronMQ',
             ],
             'ironmq' => [
                 'project_id' => 'test',

@@ -22,7 +22,7 @@ composer require infuse/iron-mq
 ```php
 'services' => [
 	// ...
-	'ironmq' => /App\Iron\Services\IronMQ'
+	'ironmq' => 'Infuse\IronMQ\Services\IronMQ'
 	// ....
 ]
 ```
@@ -34,8 +34,8 @@ composer require infuse/iron-mq
 	// ...
 	'commands' => [
 		// ...
-		'App\Iron\Console\SetupCommand',
-		'App\Iron\Console\ProcessCommand'
+		'Infuse\IronMQ\Console\SetupCommand',
+		'Infuse\IronMQ\Console\ProcessCommand'
 	]
 ]
 ```
@@ -46,7 +46,7 @@ composer require infuse/iron-mq
 'routes' => [
 	// ...
 	'POST /iron/message' => [
-		'App\Iron\Controller',
+		'Infuse\IronMQ\Controller',
 		'message'
     ]
 	// ...
