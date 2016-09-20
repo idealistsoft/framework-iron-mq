@@ -20,7 +20,7 @@ class ControllerTest extends PHPUnit_Framework_TestCase
                 'project_id' => 'test',
                 'token' => 'token', ], ]);
 
-        $this->assertInstanceOf('IronMQ', $app['ironmq']);
+        $this->assertInstanceOf('IronMQ\IronMQ', $app['ironmq']);
     }
 
     public function testMessageNoAuth()

@@ -2,10 +2,12 @@
 
 namespace Infuse\IronMQ\Services;
 
+use IronMQ\IronMQ as Client;
+
 class IronMQ
 {
     public function __invoke($app)
     {
-        return new \IronMQ($app['config']->get('ironmq'));
+        return new Client($app['config']->get('ironmq'));
     }
 }
