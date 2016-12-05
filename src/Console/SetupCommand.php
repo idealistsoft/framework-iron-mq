@@ -24,7 +24,7 @@ class SetupCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('iron-setup')
+            ->setName('iron:setup')
             ->setDescription('Installs Iron.io message queues');
     }
 

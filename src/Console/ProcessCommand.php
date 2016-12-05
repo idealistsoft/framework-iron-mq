@@ -26,7 +26,7 @@ class ProcessCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('iron-process')
+            ->setName('iron:process')
             ->setDescription('Processes messages from Iron.io message queues')
             ->addArgument(
                 'n',
